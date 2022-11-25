@@ -43,11 +43,10 @@ const tribonacci_dp = (n, dp = []) => {
 }
 
 const n1 = 4;
-console.log(tribonacci(n1)); // 4
+console.log(tribonacci_dp(n1)); // 4
 
 const n2 = 25;
-console.log(tribonacci(n2)); // 1389537
-
+console.log(tribonacci_dp(n2)); // 1389537
 
 // Solution 1 - Dynamic Programming
 
