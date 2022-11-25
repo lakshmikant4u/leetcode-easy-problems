@@ -48,7 +48,7 @@ console.log(tribonacci_dp(n1)); // 4
 const n2 = 25;
 console.log(tribonacci_dp(n2)); // 1389537
 
-// Solution 1 - Dynamic Programming
+// Solution 2 - Recursion 
 
 /**
  * @param {number} n
