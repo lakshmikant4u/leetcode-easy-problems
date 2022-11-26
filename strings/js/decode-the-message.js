@@ -61,11 +61,6 @@ let key = "the quick brown fox jumps over the lazy dog";
 let message = "vkbs bs t suepuv"
 console.log(decodeMessage(key, message));
 
-// let key2 = "eljuxhpwnyrdgtqkviszcfmabo"
-// let message2 = "zwx hnfx lqantp mnoeius ycgk vcnjrdb";
-// console.log(decodeMessage(key2, message2));
-
-
 // Solution 2
 
 const decodeMessage2 = (key, message) => {
