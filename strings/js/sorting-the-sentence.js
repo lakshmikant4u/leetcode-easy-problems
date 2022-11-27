@@ -52,3 +52,7 @@ console.log(sortSentence2("Myself2 Me1 I4 and3")); // Me Myself and I
 const sortSentence3 = s => s.split(' ').sort((a, b) => a.substr(-1) - b.substr(-1)).map(word => word.slice(0, -1)).join(' ');
 
 console.log(sortSentence3("Is2 India1 Country5 A3 Great4")); // India Is Great Country
+
+const sortSentence4 = s => s.split(' ').sort((a, b) => a.substr(-1) - b.substr(-1)).join(' ').replace(/[0-9]/g, '');
+
+console.log(sortSentence4("Bengaluru1 Is2 A3 Beautiful5 Very4 City6")); // Bengaluru Is A Very Beautiful City
