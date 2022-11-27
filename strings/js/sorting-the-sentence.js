@@ -56,3 +56,7 @@ console.log(sortSentence3("Is2 India1 Country5 A3 Great4")); // India Is Great C
 const sortSentence4 = s => s.split(' ').sort((a, b) => a.substr(-1) - b.substr(-1)).join(' ').replace(/[0-9]/g, '');
 
 console.log(sortSentence4("Bengaluru1 Is2 A3 Beautiful5 Very4 City6")); // Bengaluru Is A Very Beautiful City
+
+const sortSentence5 = s => s.split(' ').sort((a, b) => a.slice(-1) - b.slice(-1)).map(word => word.slice(0, -1)).join(' ');
+
+console.log(sortSentence5("Hubli1 Is2 City4 My3")); // Hubli Is My City
