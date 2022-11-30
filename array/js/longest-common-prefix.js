@@ -49,3 +49,6 @@ console.log(longestCommonPrefix(strs1)); // "fl"
 
 const strs2 = ["dog", "racecar", "car"];
 console.log(longestCommonPrefix(strs2)); // ""
+
+const strs3 = ["card", "care", "car"];
+console.log(longestCommonPrefix(strs3)); // ""
