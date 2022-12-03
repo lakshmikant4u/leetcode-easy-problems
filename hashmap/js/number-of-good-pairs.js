@@ -47,3 +47,17 @@ const numIdenticalPairs = (nums, map = new Map(), res = 0) => {
 };
 
 console.log(numIdenticalPairs([1, 2, 3, 1, 1, 3])) // 4
+
+// Solution 2 using Array reduce method
+
+const numIdenticalPairs2 = (nums, map = new Map()) => nums.reduce((prev, cur) => {
+    if (map.get(cur)) {
+        prev += map.get(cur);
+        map.set(cur, map.get(cur) + 1)
+    } else {
+        map.set(cur, 1)
+    }
+    return prev;
+}, 0);
+
+console.log(numIdenticalPairs2([1, 2, 3])); // 0
