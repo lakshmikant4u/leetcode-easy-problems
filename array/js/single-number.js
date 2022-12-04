@@ -47,3 +47,14 @@ const singleNumber2 = (nums) => nums.reduce((prev, curr) => prev ^ curr);
 
 console.log(singleNumber2([2, 2, 1, 3, 1])); // 3
 
+// Solution 3 use object and keys to get the result
+const singleNumber3 = (nums) => {
+    const digitCount = {};
+    for (let i = 0; i < nums.length; i++) {
+        if (digitCount[nums[i]]) digitCount[nums[i]]++;
+        else digitCount[nums[i]] = 1;
+    }
+    return Object.keys(digitCount).find(x => digitCount[x] === 1);
+}
+
+console.log(singleNumber3([2, 1, 1])); // 2
