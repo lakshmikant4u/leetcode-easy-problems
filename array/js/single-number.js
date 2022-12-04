@@ -91,3 +91,14 @@ const singleNumber6 = function (nums) {
 
 console.log(singleNumber6(([2]))); // 2
 
+// Solution 7 to use Map with slight variation to get the number
+const singleNumber7 = (nums) => {
+    const map = new Map()
+    for (let num of nums) {
+        map.set(num, map.get(num) + 1 || 1)
+    }
+    for (let [key, val] of map) {
+        if (val === 1) return key
+    }
+};
+console.log(singleNumber7(([2, 2, 5]))); // 5
