@@ -79,3 +79,15 @@ const singleNumber5 = (nums) => {
 
 console.log(singleNumber5(([2, 1, 3, 1, 2]))); // 3
 
+// Solution 6 to use Map to get the number
+const singleNumber6 = function (nums) {
+    const map = new Map()
+    for (let i = 0; i < nums.length; i++) {
+        if (map.has(nums[i])) map.delete(nums[i])
+        else map.set(nums[i], true)
+    }
+    return map.keys().next().value
+};
+
+console.log(singleNumber6(([2]))); // 2
+
