@@ -97,3 +97,17 @@ const calPoints = (operations) => {
 
 console.log(calPoints(["5", "2", "C", "D", "+"])); // 30
 
+// Solution 2 using Array reduce function
+
+const calPoints2 = operations => {
+    return operations.reduce((score, op, idx) => {
+        let len = score.length;
+        if (op === 'C') score.pop()
+        else if (op === 'D') score.push(score[len - 1] * 2)
+        else if (op === '+') score.push(score[len - 1] + score[len - 2])
+        else score.push(+op)
+        return score
+    }, []).reduce((sum, num) => sum += num, 0)
+}
+
+console.log(calPoints2(["5", "-2", "4", "C", "D", "9", "+", "+"])); // 27
