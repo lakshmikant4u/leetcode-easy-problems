@@ -54,3 +54,22 @@ const haveConflict = (event1, event2) => Math.max(toMins(event1[0]), toMins(even
 
 console.log(haveConflict(["01:15", "02:00"], ["02:00", "03:00"])); // true
 
+// Solution 2
+
+const haveConflict2 = (event1, event2) => {
+    let [startTime1, endTime1] = event1;
+    let [startTime2, endTime2] = event2;
+
+    startTime1 = parseInt(startTime1.replace(':', ''));
+    startTime2 = parseInt(startTime2.replace(':', ''));
+    endTime1 = parseInt(endTime1.replace(':', ''));
+    endTime2 = parseInt(endTime2.replace(':', ''));
+
+    if (startTime1 <= endTime2 && startTime2 <= endTime1) {
+        return true
+    }
+
+    return false;
+};
+
+console.log(haveConflict2(["10:00", "11:00"], ["14:00", "15:00"])); // false
