@@ -41,3 +41,9 @@ const singleNumber = (nums) => {
 };
 
 console.log(singleNumber([2, 2, 1])); // 1
+
+// Solution 2 use Array reduce  and XOR to get the odd one out
+const singleNumber2 = (nums) => nums.reduce((prev, curr) => prev ^ curr);
+
+console.log(singleNumber2([2, 2, 1, 3, 1])); // 3
+
