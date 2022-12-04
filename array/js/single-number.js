@@ -58,3 +58,15 @@ const singleNumber3 = (nums) => {
 }
 
 console.log(singleNumber3([2, 1, 1])); // 2
+
+// Solution 4 use for loop similar to Array reduce and XOR to get the odd one out
+const singleNumber4 = (nums) => {
+    let ans;
+    for (let i = 0; i < nums.length; i++) {
+        ans = ans ^ nums[i];
+    }
+    return ans;
+}
+
+console.log(singleNumber4(([4, 1, 2, 1, 2]))); // 4
+
