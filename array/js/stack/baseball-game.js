@@ -111,3 +111,63 @@ const calPoints2 = operations => {
 }
 
 console.log(calPoints2(["5", "-2", "4", "C", "D", "9", "+", "+"])); // 27
+
+// Solution 3 by creating Stack with constructor function
+
+function Stack(values) {
+    this.storage = values ? Array.from(values) : [];
+}
+
+Stack.prototype.push = function (element) {
+    this.storage.push(element);
+}
+
+Stack.prototype.pop = function () {
+    this.storage.pop();
+}
+
+Stack.prototype.peek = function () {
+    this.storage[this.storage.length - 1];
+}
+
+Stack.prototype.size = function () {
+    this.storage.length;
+}
+
+const addToScoreCard = (operation, scorecard) => {
+    const numRe = /\d+/
+    if (operation.match(numRe)) {
+        scorecard.push(Number(operation))
+    } else if (operation === 'C') {
+        scorecard.pop()
+    } else if (operation === '+') {
+        const lastScore = scorecard.pop()
+        const lastLastScore = scorecard.peek()
+        scorecard.push(lastScore)
+        scorecard.push(lastScore + lastLastScore)
+    } else if (operation === 'D') {
+        scorecard.push(scorecard.peek() * 2)
+    }
+}
+
+const calculateScore = scorecard => {
+    let results = 0
+
+    while (scorecard.size() > 0) {
+        results += scorecard.pop()
+    }
+
+    return results
+}
+
+var calPoints3 = operations => {
+    const scorecard = new Stack()
+
+    for (let operation of operations) {
+        addToScoreCard(operation, scorecard)
+    }
+
+    return calculateScore(scorecard)
+};
+
+console.log(calPoints3(["1", "C"])) // 0
