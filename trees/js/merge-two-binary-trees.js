@@ -92,3 +92,26 @@ let root2 = createBSTree(arr2, 0);
 let res1 = mergeTrees(root1, root2)
 console.log(getTreeInArray(res1, [], 0)); // [3, 4, 5, 5, 4, null, 7]
 
+// Solution 2
+const mergeTrees2 = (root1, root2) => {
+    if (!root1) {
+        return root2;
+    }
+
+    if (!root2) {
+        return root1;
+    }
+
+    root1.val = root1.val + root2.val;
+    root1.left = mergeTrees(root1.left, root2.left);
+    root1.right = mergeTrees(root1.right, root2.right);
+
+    return root1;
+};
+
+let arr3 = [1,];
+let arr4 = [1, 2];
+let root3 = createBSTree(arr3, 0);
+let root4 = createBSTree(arr4, 0);
+let res2 = mergeTrees(root3, root4);
+console.log(getTreeInArray(res2, [], 0)); // [2, 2]
