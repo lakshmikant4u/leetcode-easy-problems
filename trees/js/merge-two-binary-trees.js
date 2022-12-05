@@ -25,7 +25,6 @@ The number of nodes in both trees is in the range [0, 2000].
 
  */
 
-// Solution 1
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -34,6 +33,7 @@ The number of nodes in both trees is in the range [0, 2000].
  *     this.right = (right===undefined ? null : right)
  * }
  */
+// Utility functions to save or print the tree in Array format
 function TreeNode(val, left, right) {
     this.val = (val === undefined ? 0 : val)
     this.left = (left === undefined ? null : left)
