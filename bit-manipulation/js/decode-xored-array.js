@@ -40,3 +40,15 @@ const decode = (encoded, first, res = [first]) => {
 }
 
 console.log(decode([1, 2, 3], 1)); // [1, 0, 2, 1]
+
+// Solution 2 using the same encoded array to decode
+
+const decode2 = (encoded, first) => {
+    encoded.unshift(first)
+    for (let i = 0; i < encoded.length - 1; i++) {
+        encoded[i + 1] = encoded[i] ^ encoded[i + 1]
+    }
+    return encoded
+};
+
+console.log(decode2([6, 2, 7, 3], 4)); // [4, 2, 0, 7, 4]
