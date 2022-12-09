@@ -43,7 +43,7 @@ const firstUniqChar = str => {
 
 console.log(firstUniqChar(leetcode)); // 0
 
-// Solution 2 
+// Solution 2 index of Method to check if there are any strings ahead.
 const firstUniqChar2 = str => {
     for (let i = 0; i < str.length; i++) {
         let a = s[i]
@@ -52,4 +52,14 @@ const firstUniqChar2 = str => {
         }
     }
     return -1
+};
+
+// Solution 3 Slight variation of 1st soln
+var firstUniqChar3 = function (s) {
+    for (let i = 0; i < s.length; i++) {
+        if (s.lastIndexOf(s[i]) === s.indexOf(s[i])) {
+            return i;
+        }
+    }
+    return -1;
 };
