@@ -29,12 +29,12 @@ s consists of only lowercase English letters.
  * @return {number}
  */
 const firstUniqChar = str => {
-    var freq = Array(26).fill(0);
+    let freq = Array(26).fill(0);
     for (var s of str) {
         const idx = s.charCodeAt() - 97;
         freq[idx] += 1;
     }
-    for (var i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
         const idx = str[i].charCodeAt() - 97;
         if (freq[idx] === 1) return i;
     }
@@ -42,3 +42,14 @@ const firstUniqChar = str => {
 }
 
 console.log(firstUniqChar(leetcode)); // 0
+
+// Solution 2 
+const firstUniqChar2 = str => {
+    for (let i = 0; i < str.length; i++) {
+        let a = s[i]
+        if (s.indexOf(a) === i && s.indexOf(a, i + 1) === -1) {
+            return i
+        }
+    }
+    return -1
+};
