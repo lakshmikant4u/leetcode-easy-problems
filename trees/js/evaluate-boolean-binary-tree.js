@@ -48,6 +48,31 @@ Non-leaf nodes have a value of 2 or 3.
  *     this.right = (right===undefined ? null : right)
  * }
  */
+
+function TreeNode(val, left, right) {
+    this.val = (val === undefined ? 0 : val)
+    this.left = (left === undefined ? null : left)
+    this.right = (right === undefined ? null : right)
+}
+
+function createBSTree(arr, i) {
+    let root = null;
+    if (i < arr.length) {
+        root = new TreeNode(arr[i]);
+        root.left = createBSTree(arr, 2 * i + 1); // left child
+        root.right = createBSTree(arr, 2 * i + 2); // right child
+    }
+    return root;
+}
+
+function getTreeInArray(root, arr = [], i) {
+    if (root != null) {
+        arr[i] = root.val;
+        getTreeInArray(root.left, arr, 2 * i + 1);
+        getTreeInArray(root.right, arr, 2 * i + 2);
+    }
+    return arr
+}
 /**
  * @param {TreeNode} root
  * @return {boolean}
@@ -68,3 +93,11 @@ const evaluateTree = (root) => {
     return dfs(root);
 };
 
+
+let arr1 = [2, 1, 3, null, null, 0, 1];
+let root1 = createBSTree(arr1, 0);
+console.log(evaluateTree(root1)); // true
+
+let arr2 = [0];
+let root2 = createBSTree(arr2, 0);
+console.log(evaluateTree(root2)); // false
