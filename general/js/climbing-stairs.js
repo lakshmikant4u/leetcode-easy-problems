@@ -39,3 +39,25 @@ const climbStairs = (n, dp = []) => {
     if (n == 2) return 2;
     return dp[n] = climbStairs(n - 1, dp) + climbStairs(n - 2, dp);
 };
+
+console.log(climbStairs(2)) // 2
+
+// Solution 2 
+
+const climbStairs2 = (n) => {
+    if (n === 1) {
+        return 1;
+    }
+    if (n === 2) {
+        return 2;
+    }
+    let ways = 0, n1 = 2, n2 = 1;
+    for (let i = 2; i < n; i++) {
+        ways = n1 + n2;
+        n2 = n1;
+        n1 = ways;
+    }
+    return ways;
+};
+
+console.log(climbStairs2(3)) // 3
