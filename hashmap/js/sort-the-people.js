@@ -66,3 +66,9 @@ const sortPeople3 = (names, heights, people = {}) => {
 };
 
 console.log(sortPeople3(["Mary", "John", "Emma"], [180, 165, 170])); // ["Mary","Emma","John"]
+
+// Solution 4 short
+const sortPeople4 = (names, heights) => names.map((name, idx) => [name, heights[idx]]).sort((a, b) => b[1] - a[1]).map(val => val[0]);
+
+console.log(sortPeople4(["Alice", "Bob", "Bob"], [155, 185, 150])); // ['Bob', 'Alice', 'Bob']
+
