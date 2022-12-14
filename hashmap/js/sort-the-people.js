@@ -55,3 +55,14 @@ const sortPeople2 = (names, heights, arr = []) => {
 };
 
 console.log(sortPeople2(["Alice", "Bob", "Bob"], [155, 185, 150])); // ['Bob', 'Alice', 'Bob']
+
+// Solution 3 with Object
+
+const sortPeople3 = (names, heights, people = {}) => {
+    for (let i = 0; i < heights.length; i++) {
+        people[heights[i]] = names[i]
+    }
+    return Object.values(people).reverse()
+};
+
+console.log(sortPeople3(["Mary", "John", "Emma"], [180, 165, 170])); // ["Mary","Emma","John"]
