@@ -46,3 +46,16 @@ const searchInsert = (nums, target, left = 0, right = nums.length - 1) => {
 };
 
 console.log(searchInsert([1, 3, 5, 6], 5)) // 2
+
+const searchInsert2 = (nums, target) => {
+    let start = 0;
+    let end = nums.length - 1;
+    while (start < end) {
+        let mid = Math.floor((start + end) / 2);
+        if (nums[mid] == target) return mid;
+        nums[mid] < target ? start = mid + 1 : end = mid;
+    }
+    return target <= nums[start] ? start : start + 1;
+};
+
+console.log(searchInsert2([1, 3, 5, 6], 2)) // 1
