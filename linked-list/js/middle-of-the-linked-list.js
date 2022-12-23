@@ -82,3 +82,34 @@ output -> SinglyListNode {
         }
  */
 
+let node6 = new SinglyListNode(6);
+node5.next = node6; // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
+
+var middleNode2 = function (head) {
+    let fast = head
+    let slow = head
+
+    while (fast?.next) {
+        slow = slow.next
+        fast = fast.next?.next
+    }
+
+    return slow
+};
+
+console.log(middleNode2(head)); // 4 -> 5 -> 6 -> null
+
+/**
+run below commond in terminal to get output
+
+command -> node middle-of-the-linked-list.js 
+
+output -> SinglyListNode {
+            val: 4,
+            next: SinglyListNode {
+                val: 5,
+                next: SinglyListNode { val: 6, next: null }
+            }
+        }
+ */
+
