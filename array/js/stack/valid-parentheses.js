@@ -57,3 +57,25 @@ const isValid = (s) => {
 };
 
 console.log(isValid("()[]{}")) // true 
+
+const isValid2 = (s) => {
+
+    let pairs = {
+        ")": "(",
+        "}": "{",
+        "]": "["
+    }
+
+    let stack = [];
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === "(" || s[i] === "[" || s[i] === "{") {
+            stack.push(s[i])
+        } else if (stack[stack.length - 1] === pairs[s[i]]) {
+            stack.pop();
+        } else return false;
+    }
+    return stack.length ? false : true
+};
+
+console.log(isValid2("(]")) // false 
