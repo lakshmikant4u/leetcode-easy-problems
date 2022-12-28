@@ -50,3 +50,18 @@ const isPalindrome2 = x => {
 };
 console.log(isPalindrome2(-121)); //false
 
+// Solution 3
+
+const isPalindrome3 = x => {
+    if (x < 0 || x % 10 == 0 && x != 0)
+        return false
+    let s = String(x)
+    let slen = s.length - 1
+    for (let i = 0; i <= slen / 2; i++) {
+        if (s[i] != s[slen - i])
+            return false
+    }
+    return true
+};
+
+console.log(isPalindrome3(10)); // false
