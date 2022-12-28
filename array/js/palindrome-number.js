@@ -41,3 +41,12 @@ const isPalindrome = function (x) {
 
 console.log(isPalindrome(121)); // true
 
+// Solution 2
+
+const isPalindrome2 = x => {
+    const str = `${x}`
+    const reverseStr = str.split('').reverse().join("")
+    return str === reverseStr;
+};
+console.log(isPalindrome2(-121)); //false
+
