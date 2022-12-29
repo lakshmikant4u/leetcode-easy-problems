@@ -51,3 +51,22 @@ var majorityElement2 = function (nums) {
 };
 
 console.log(majorityElement2([2, 2, 1, 1, 1, 2, 2])) // 2
+
+// Solution 3
+
+var majorityElement3 = function (nums) {
+    let selectedNum = nums[0];
+    let count = 1;
+
+    for (let i = 1; i < nums.length; i++) {
+        if (count == 0) selectedNum = nums[i]
+        if (selectedNum == nums[i]) {
+            count++
+        } else {
+            count--;
+        }
+    }
+    return selectedNum;
+};
+
+console.log(majorityElement3([2, 2, 1, 1, 1, 2, 2])) // 2
