@@ -31,3 +31,23 @@ const majorityElement = (nums) => {
 };
 
 console.log(majorityElement([3, 2, 3])) // 3
+
+// Solution 2
+
+var majorityElement2 = function (nums) {
+    let count = 0;
+    let obj = {};
+    let n = nums.length;
+    for (let i = 0; i < n; i++) {
+        if (obj[nums[i]] === undefined) {
+            obj[nums[i]] = 1;
+        } else {
+            obj[nums[i]]++;
+        }
+        if (obj[nums[i]] > n / 2) {
+            return nums[i];
+        }
+    }
+};
+
+console.log(majorityElement2([2, 2, 1, 1, 1, 2, 2])) // 2
