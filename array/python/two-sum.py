@@ -41,3 +41,19 @@ class Solution(object):
 solution = Solution()
 print(solution.twoSum([3, 2, 4], 6))  # (1, 2)
 
+# Solution 2 using for loop with enumerate
+
+
+class Solution2(object):
+    def twoSum(self, nums, target):
+        HM = {}
+        for i, n in enumerate(nums):
+            dif = target-n
+            if dif in HM:
+                return [HM[dif], i]
+            HM[n] = i
+        return
+
+
+solution = Solution2()
+print(solution.twoSum([3, 3], 6))  # [0, 1]
