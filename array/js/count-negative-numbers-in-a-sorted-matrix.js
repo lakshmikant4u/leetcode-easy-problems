@@ -43,3 +43,19 @@ const countNegatives2 = grid => grid.reduce((acc, curr) => acc + curr.filter(n =
 
 console.log(countNegatives2([[4, 3, 2, -1], [3, 2, 1, -1], [1, 1, -1, -2], [-1, -1, -2, -3]])) // 8
 
+// Solution 3 for of used
+var countNegatives3 = function (grid) {
+    let countNegativeNums = 0;
+
+    for (const chunk of grid) {
+        for (const digit of chunk) {
+            if (digit < 0) countNegativeNums++;
+        }
+    }
+
+    return countNegativeNums;
+};
+
+console.log(countNegatives3([[3, 2], [1, 0]])) // 0
+
+
