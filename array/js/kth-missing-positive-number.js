@@ -45,3 +45,26 @@ const findKthPositive = (arr, k, prev = 0) => {
     }
     return prev + k
 };
+
+console.log(findKthPositive([2, 3, 4, 7, 11], 5)); // 9
+// Solution 2
+
+var findKthPositive2 = function (arr, k) {
+    const missing = [];
+    let j = 1;
+    let i = 0;
+
+    while ((missing.length - 1) !== k) {
+        if (arr[i] !== j) {
+            missing.push(j);
+        } else {
+            i++;
+        }
+        j++;
+    }
+
+    return missing[k - 1];
+};
+
+
+console.log(findKthPositive2([1, 2, 3, 4], 2)); // 6
