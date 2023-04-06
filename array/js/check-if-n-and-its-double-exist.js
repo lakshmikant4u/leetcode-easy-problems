@@ -23,7 +23,7 @@ Constraints:
 -103 <= arr[i] <= 103
  */
 
-// Solution 1
+// Solution 1 : Using Map
 const checkIfExist = (arr, map = new Map()) => {
 
     for (let i = 0; i < arr.length; i++) {
@@ -37,3 +37,19 @@ const checkIfExist = (arr, map = new Map()) => {
 };
 
 console.log(checkIfExist([10, 2, 5, 3])); // true
+
+// Solution 2 : Using Set
+const checkIfExist2 = (arr, set = new Set()) => {
+
+    for (const num of arr) {
+        // If this number's double has been seen
+        if (set.has(num * 2)) return true;
+        // If this is some number's double
+        if (set.has(num / 2)) return true;
+        set.add(num);
+    }
+    return false;
+};
+
+console.log(checkIfExist2([3, 1, 7, 11])); // false
+
