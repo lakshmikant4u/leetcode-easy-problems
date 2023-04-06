@@ -53,3 +53,18 @@ const checkIfExist2 = (arr, set = new Set()) => {
 
 console.log(checkIfExist2([3, 1, 7, 11])); // false
 
+// Solution 3 : Brute force - two loops n2
+
+const checkIfExist3 = (arr) => {
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if ((i != j) && ((2 * arr[i]) == arr[j])) {
+                return true;
+            }
+        }
+    }
+    return false;
+};
+console.log(checkIfExist3([3, 1, 7, 14, 11])); // true
+
