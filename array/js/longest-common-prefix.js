@@ -52,3 +52,19 @@ console.log(longestCommonPrefix(strs2)); // ""
 
 const strs3 = ["card", "care", "car"];
 console.log(longestCommonPrefix(strs3)); // ""
+
+const longestCommonPrefix2 = (strs) => {
+    if (strs.length === 0) return "";
+    let prefix = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.substring(0, prefix.length - 1);
+            if (prefix === "") return "";
+        }
+    }
+    return prefix;
+}
+
+const strs4 = ["hubspot", "hubli", "huricane"];
+console.log(longestCommonPrefix2(strs4)); // hu
+
