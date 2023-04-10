@@ -68,3 +68,18 @@ const longestCommonPrefix2 = (strs) => {
 const strs4 = ["hubspot", "hubli", "huricane"];
 console.log(longestCommonPrefix2(strs4)); // hu
 
+const longestCommonPrefix3 = (strs) => {
+    strs.sort()
+
+    for (let i = 0; i < strs[0].length; i++) {
+        if (strs[0][i] !== strs[strs.length - 1][i]) {
+
+            return strs[0].substr(0, i);
+        }
+    }
+
+    return strs[0];
+};
+const strs5 = ["gadag", "gadget", "goa"];
+console.log(longestCommonPrefix3(strs5)); // g
+
