@@ -24,3 +24,20 @@ Constraints:
 const countOdds1 = (low, high) => (high - (low & ~1) + 1) >> 1;
 
 console.log(countOdds1(2, 9)); // 4
+
+// Solution 2 
+const countOdds2 = (low, high) => Math.floor((high + 1) / 2) - low / 2;
+console.log(countOdds2(4, 8)); // 2
+
+// Solution 3
+const countOdds3 = (low, high) => {
+    if (low % 2 === 1) {
+        low--;
+    }
+    if (high % 2 === 1) {
+        high++;
+    }
+    return (high - low) / 2;
+};
+console.log(countOdds3(2, 7)); // 3
+
